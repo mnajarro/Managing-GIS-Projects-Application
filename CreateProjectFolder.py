@@ -45,7 +45,7 @@ class Example(Frame):
          self.AnalystNameEntry = Entry(self.frame)
          self.AnalystNameEntry.grid(row=3, column=1)
 
-         self.AnalystUIDEntrylabel =Label(self.frame, text="Analyst USAID UserID").grid(row=4)
+         self.AnalystUIDEntrylabel =Label(self.frame, text="Analyst UserID").grid(row=4)
          self.AnalystUIDEntry = Entry(self.frame)
          self.AnalystUIDEntry.grid(row=4, column=1)
 
@@ -69,7 +69,7 @@ class Example(Frame):
          self.SuccessObjectivesEntry = Text(self.frame, width=35, height=6)
          self.SuccessObjectivesEntry.grid(row=9, column=1)
 
-         self.Sectorvarlabel= Label(self.frame, text="USAID Sector").grid(row=10)
+         self.Sectorvarlabel= Label(self.frame, text="Sector").grid(row=10)
          self.Sectorvar = StringVar(self.frame)
          self.Sectorvar.set("---Select One---") # initial value
          self.optionList = ("---Select One---", "Ag and Food Security", "Crisis and Conflict","Democracy Human Rights Governance", "Economic Growth and Trade", "Education", "Ending Extreme Poverty", "Environment Climate Change", "Gender Womens Empowerment", "Global Development Lab", "Global Health", "Water and Sanitation")
@@ -181,7 +181,7 @@ class Example(Frame):
         if self.AnalystNameEntry.get() == "":
             self.Resultslabel_text.set("Please enter an analyst name")
         elif self.AnalystUIDEntry.get() == "":
-            self.Resultslabel_text.set("Please enter the analyst's USAID User ID")
+            self.Resultslabel_text.set("Please enter the analyst's ID")
         elif self.ProjNameEntry.get() == "":
             self.Resultslabel_text.set("Please enter a project name")
         elif self.CustomerNameEntry.get() == "":
@@ -191,7 +191,7 @@ class Example(Frame):
         elif self.ProjectPurposeEntry.get("1.0",'end-1c') == "":
             self.Resultslabel_text.set("Please enter a project purpose")
         elif self.SuccessObjectivesEntry.get("1.0",'end-1c') == "":
-            self.Resultslabel_text.set("Please enter a the success objective \n (i.e. how will the project be used to make a difference within USAID)")
+            self.Resultslabel_text.set("Please enter a the success objective \n (i.e. how will the project be used to make a difference )")
         elif self.Sectorvar.get() == "---Select One---":
             self.Resultslabel_text.set("Please select a Sector")
         elif self.Scalevar.get() == "---Select Geographic Scale---":
@@ -261,7 +261,7 @@ class Example(Frame):
                                         self.GeogList, self.ProjFileName])
                 self.CVSWriteStatus1_text.set("Project successfully written to the project catalog")
         except:
-            self.CVSWriteStatus1_text.set("--- NOTE: Failed to add this project to the project catalog. \nPlease notify Brian Bakker of this message---")
+            self.CVSWriteStatus1_text.set("--- NOTE: Failed to add this project to the project catalog. \nPlease notify  of this message---")
             self.writefail = self.writefail + 1
 
         try:
@@ -273,7 +273,7 @@ class Example(Frame):
                                         self.GeogList, self.ProjFileName])
                 self.CVSWriteStatus2_text.set("Project successfully written to the backup catalog")
         except:
-            self.CVSWriteStatus2_text.set("--- WARNING: Failed to add this project to the backup catalog. ---\n Please capture a screenshot of this program \n and send it to Brian Bakker.")
+            self.CVSWriteStatus2_text.set("--- WARNING: Failed to add this project to the backup catalog. ---\n Please capture a screenshot of this program \n and send it.")
             self.writefail = self.writefail + 1
         
 
@@ -289,7 +289,7 @@ class Example(Frame):
             os.makedirs(self.newdir)
             self.WriteDirectoryResult_text.set("New Project Directory Created Successfully \n The folder name is: \n"+ self.newdir)
         except Exception, e:
-            self.WriteDirectoryResult_text.set("--- ERROR Creating New Project Folder---:\n"+str(e)+"\n If you are uncertain about the reason for this error, please contact Brian Bakker.")
+            self.WriteDirectoryResult_text.set("--- ERROR Creating New Project Folder---:\n"+str(e)+"\n If you are uncertain about the reason for this error.")
         os.makedirs(self.newdir+'/Data')
         os.makedirs(self.newdir+'/MXD')
         os.makedirs(self.newdir+'/Outputs')
@@ -331,7 +331,7 @@ class Example(Frame):
                 self.create_sheet.destroy()
                 self.WriteMXDResult_text.set("MXD Template Created Successfully")
             except Exception, e:            
-                self.WriteMXDResult_text.set("--- ERROR Creating MXD Template ---\n"+str(e)+"\n Please capture a screenshot of this program \n and send it to Brian Bakker.")
+                self.WriteMXDResult_text.set("--- ERROR Creating MXD Template ---\n"+str(e)+"\n Please capture a screenshot of this program \n and send it .")
             
         self.FinalNotes_text.set("Finished Processing")
 
